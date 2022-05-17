@@ -19,16 +19,12 @@ public class FizzBuzzController {
   public ResponseEntity<FizzBuzzResponse> getFizzBuzzResponse(@PathVariable("code") String code)
           throws FizzException, BuzzException, FizzBuzzException {
     if (FizzBuzzEnum.FIZZ.getValue().equals(code)) {
-      //throw new FizzException
       throw new FizzException("Fizz Exception has been thrown", "Internal Server Error");
     } else if (FizzBuzzEnum.BUZZ.getValue().equals(code)) {
-      //throw new BuzzException
       throw new BuzzException("Buzz Exception has been thrown", "Bad Request");
     } else if (FizzBuzzEnum.FIZZBUZZ.getValue().equals(code)) {
-      //throw new FizzBuzzException
       throw new FizzException("FizzBuzz Exception has been thrown", "Insufficient Storage");
     }
-    //return FizzBuzzResponse
     return ResponseEntity.ok(new FizzBuzzResponse("Successfully completed fizzbuzz test", 200));
   }
 }
