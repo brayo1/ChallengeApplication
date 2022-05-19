@@ -5,6 +5,7 @@ import com.hackerrank.restcontrolleradvice.dto.FizzBuzzException;
 import com.hackerrank.restcontrolleradvice.dto.FizzBuzzResponse;
 import com.hackerrank.restcontrolleradvice.dto.FizzException;
 import com.hackerrank.restcontrolleradvice.enums.FizzBuzzEnum;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,7 +24,7 @@ public class FizzBuzzController {
     } else if (FizzBuzzEnum.BUZZ.getValue().equals(code)) {
       throw new BuzzException("Buzz Exception has been thrown", "Bad Request");
     } else if (FizzBuzzEnum.FIZZBUZZ.getValue().equals(code)) {
-      throw new FizzException("FizzBuzz Exception has been thrown", "Insufficient Storage");
+      throw new FizzBuzzException("FizzBuzz Exception has been thrown", "Insufficient Storage");
     }
     return ResponseEntity.ok(new FizzBuzzResponse("Successfully completed fizzbuzz test", 200));
   }
